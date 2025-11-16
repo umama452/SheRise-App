@@ -23,27 +23,29 @@ export default function ChatbotScreen() {
   const [loading, setLoading] = useState(false);
   const scrollRef = useRef(null);
 
+
   const handleSend = async () => {
-    if (!input.trim()) return;
-    const userMsg = { from: "user", text: input.trim() };
-    setMessages((prev) => [...prev, userMsg]);
-    setInput("");
-    setLoading(true);
-    try {
-      const aiReply = await getAIResponse(input.trim());
-      setMessages((prev) => [...prev, { from: "bot", text: aiReply }]);
-    } catch {
-      setMessages((prev) => [
-        ...prev,
-        {
-          from: "bot",
-          text: "⚠️ I’m having trouble responding right now. Please try again later.",
-        },
-      ]);
-    } finally {
-      setLoading(false);
-    }
-  };
+  if (!input.trim()) return;
+  const userMsg = { from: "user", text: input.trim() };
+  setMessages((prev) => [...prev, userMsg]);
+  setInput("");
+  setLoading(true);
+  try {
+    const aiReply = await getAIResponse(input.trim(), messages);
+    setMessages((prev) => [...prev, { from: "bot", text: aiReply }]);
+  } catch {
+    setMessages((prev) => [
+      ...prev,
+      {
+        from: "bot",
+        text: "⚠️ I’m having trouble responding right now. Please try again later.",
+      },
+    ]);
+  } finally {
+    setLoading(false);
+  }
+};
+// }
 
   useEffect(() => {
     if (scrollRef.current) {
@@ -115,6 +117,7 @@ const styles = StyleSheet.create({
     maxWidth: "80%",
     borderRadius: 12,
     padding: 10,
+    // backgroundColor: "#574374ff",
   },
   userBubble: {
     backgroundColor: "#6200EE",

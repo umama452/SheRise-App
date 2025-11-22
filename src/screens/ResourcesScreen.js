@@ -1,6 +1,7 @@
 // src/screens/ResourcesScreen.js
 import React from 'react';
 import { View, Text, StyleSheet, ScrollView, Linking, TouchableOpacity } from 'react-native';
+import BackButton from "../components/BackButton";
 
 export default function ResourcesScreen() {
   const resources = [
@@ -38,6 +39,8 @@ export default function ResourcesScreen() {
 
   return (
     <View style={styles.container}>
+      <BackButton navigation={navigation} />
+
       <Text style={styles.header}>📚 Empowerment & Support Resources</Text>
       <ScrollView style={styles.scroll}>
         {resources.map((item, index) => (

@@ -10,7 +10,7 @@ import {
   Platform,
   ScrollView,
 } from "react-native";
-
+import BackButton from "../components/BackButton";
 export default function BiasDetectorScreen() {
   const [input, setInput] = useState("");
   const [result, setResult] = useState(null);
@@ -54,6 +54,7 @@ export default function BiasDetectorScreen() {
       style={{ flex: 1 }}
       behavior={Platform.OS === "ios" ? "padding" : "height"}
     >
+      <BackButton navigation={navigation} />
       <ScrollView contentContainerStyle={styles.container}>
         <Text style={styles.title}>🧠 Gender Bias Detector</Text>
         <Text style={styles.subtitle}>

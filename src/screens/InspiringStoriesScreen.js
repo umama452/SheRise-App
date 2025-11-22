@@ -10,6 +10,7 @@ import {
   Platform,
   UIManager,
 } from "react-native";
+import BackButton from "../components/BackButton";
 
 // ✅ Enable smooth animation for Android
 if (Platform.OS === "android") {
@@ -56,6 +57,8 @@ export default function InspiringStoriesScreen() {
   const renderStory = ({ item }) => {
     const isExpanded = expandedStory === item.id;
     return (
+     
+
       <TouchableOpacity
         style={styles.card}
         activeOpacity={0.8}
@@ -76,7 +79,10 @@ export default function InspiringStoriesScreen() {
   };
 
   return (
+    
     <View style={styles.container}>
+      <BackButton navigation={navigation} />
+
       <Text style={styles.header}>✨ Inspiring Stories</Text>
       <FlatList
         data={stories}

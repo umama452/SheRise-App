@@ -8,7 +8,7 @@ import {
   Alert,
   Linking,
 } from "react-native";
-
+import BackButton from "../components/BackButton";
 export default function SOSScreen() {
   const [sending, setSending] = useState(false);
 
@@ -29,6 +29,7 @@ export default function SOSScreen() {
 
   return (
     <View style={styles.container}>
+       <BackButton navigation={navigation} />
       <Text style={styles.title}>🚨 Emergency SOS</Text>
       <Text style={styles.subtitle}>
         If you ever feel unsafe or discriminated against, use the SOS button

@@ -49,6 +49,7 @@ yarn-error.*
 .env.*
 .env*.local
 expo-env.d.ts
+src/firebaseConfig.js
 
 # -----------------------------
 # 💻 OS / IDE files

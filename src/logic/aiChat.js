@@ -1,8 +1,7 @@
 import axios from "axios";
 import { Platform } from "react-native";
 
-const GEMINI_API_KEY = process.env.EXPO_PUBLIC_GEMINI_API_KEY  ||
-  import.meta.env.VITE_GEMINI_API_KEY;
+const GEMINI_API_KEY = process.env.EXPO_PUBLIC_GEMINI_API_KEY  ;
 const MODEL_NAME = "gemini-2.5-flash";
 
 // 🧠 Local "training" memory — your app can persist this with AsyncStorage if needed
